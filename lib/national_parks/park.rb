@@ -1,0 +1,3 @@
+class NationalParks::Park
+
+end 

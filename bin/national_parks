@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require './lib/national_parks.rb'
+
+NationalParks::CLI.new.call

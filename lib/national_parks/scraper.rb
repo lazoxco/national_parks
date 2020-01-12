@@ -1,0 +1,3 @@
+class NationalParks::Scraper
+
+end
