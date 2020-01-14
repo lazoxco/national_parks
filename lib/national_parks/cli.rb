@@ -1,6 +1,6 @@
 class NationalParks::CLI 
     
     def call
-        puts "This works!"
+        puts "This is a test."
     end
 end

@@ -1,3 +1,3 @@
-class NationalParks::Park
+class Park
 
 end 
