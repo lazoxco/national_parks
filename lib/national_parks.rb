@@ -5,6 +5,7 @@ require_relative './national_parks/cli.rb'
 
 require 'Nokogiri'
 require 'open-uri'
+require 'pry'
 
 module NationalParks
   class Error < StandardError; end
