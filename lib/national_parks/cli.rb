@@ -4,7 +4,6 @@ class NationalParks::CLI
     
     def call
         Scraper.scrape
-        # binding.pry
         menu
     end
 
@@ -12,7 +11,7 @@ class NationalParks::CLI
         input = nil
 
         puts "Welcome to the National Parks Gem"
-        puts "Please enter 'list' to view a list of parks or 'exit' to quit the program: "
+        puts "Please enter 'list' to view a list of National Park or 'exit' to quit the program: "
 
         while input != "exit"
             input = gets.strip
@@ -20,6 +19,8 @@ class NationalParks::CLI
             if input == "list"
                 list_parks
                 puts "Select a number to learn more about a National Park:"
+                list_selection = gets.strip.to_i - 1
+                park_details(list_selection)
             elsif input == "exit"
                 puts "See you later!"
             else
@@ -29,11 +30,14 @@ class NationalParks::CLI
     end
     
     def list_parks 
-        puts "1. George Rogers Clark"
-        puts "2. Indiana Dunes"
-        puts "3. Lewis & Clark"
-        puts "4. Licoln Boyhood"
+        Park.all.each_with_index do |park, index|
+            puts "#{index + 1}. #{park.name}"
+        end 
     end 
 
-
+    def park_details(index)
+        puts "\n\n#{Park.all[index].name} - #{Park.all[index].type} - #{Park.all[index].location}\n"
+        puts "#{Park.all[index].description}\n\n"
+        puts "Please enter 'list' to view a list of parks or 'exit' to quit the program: "
+    end 
 end
