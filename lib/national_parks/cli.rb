@@ -18,9 +18,6 @@ class NationalParks::CLI
 
             if input == "list"
                 list_parks
-                puts "Select a number to learn more about a National Park:"
-                list_selection = gets.strip.to_i - 1
-                park_details(list_selection)
             elsif input == "exit"
                 puts "See you later!"
             else
@@ -33,6 +30,14 @@ class NationalParks::CLI
         Park.all.each_with_index do |park, index|
             puts "#{index + 1}. #{park.name}"
         end 
+        puts "Select a number to learn more about a National Park:"
+        list_selection = gets.strip.to_i
+        if list_selection <= 0 || list_selection > Park.all.length
+            puts "Invalid selections. Try picking a number from 1 - #{Park.all.length}"
+            list_parks
+        else
+            park_details(list_selection - 1)
+        end
     end 
 
     def park_details(index)
