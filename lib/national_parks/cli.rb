@@ -1,6 +1,10 @@
+require 'pry'
+
 class NationalParks::CLI 
     
     def call
+        Scraper.scrape
+        binding.pry
         menu
     end
 

@@ -3,7 +3,7 @@ require_relative './national_parks/park.rb'
 require_relative './national_parks/scraper.rb'
 require_relative './national_parks/cli.rb'
 
-require 'Nokogiri'
+require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
