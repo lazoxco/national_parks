@@ -4,7 +4,7 @@ class NationalParks::CLI
     
     def call
         Scraper.scrape
-        binding.pry
+        # binding.pry
         menu
     end
 

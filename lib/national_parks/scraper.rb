@@ -5,14 +5,10 @@ class Scraper
     def self.scrape 
         html = Nokogiri::HTML(open("https://www.nps.gov/state/in/index.htm"))
 
-        park_names = html.css("div.table-cell h3").map do |title|
-            title.text
+        parks = html.css("div.table-cell")
+        parks.each do |park|
+            park_info = park.text.split(/\n/).reject {|c| c.empty?}
+            Park.new(park_info[0], park_info[1], park_info[2], park_info[3])
         end 
-
-        # park_types = html.css()
-
-        park_names.each do |park_name|
-            Park.new(park_name)
-        end 
-    end 
+    end
 end

@@ -4,8 +4,11 @@ class Park
 
     @@all = []
     
-    def initialize(name)
+    def initialize(type, name, location, description)
+        @type = type 
         @name = name
+        @location = location
+        @description = description
         @@all << self
     end 
 
